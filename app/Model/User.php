@@ -12,4 +12,8 @@ class User extends Model
     {
         return $this->hasMany(Article::class);
     }
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

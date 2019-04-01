@@ -14,6 +14,7 @@
 
         <table>
                 <tr>
+                    <td>Status</td>
                     <td>Nama</td>
                     <td>Email</td>
                     <td>Terdaftar pada</td>
@@ -22,10 +23,11 @@
                 </tr>
             @foreach ($users as $user)
                 <tr>
+                    <td>{{$user->role->name}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at}}</td>
-                    <td style="text-align:center">{{$user->articles()->count()}}</td>
+                    <td style="text-align:center">{{$user->article()->count()}}</td>
                     <td>
                         <form action="{{route('users.destroy',$user->id)}}" method="post">
                         <a href="{{route('users.edit', $user->id)}}">Edit</a>

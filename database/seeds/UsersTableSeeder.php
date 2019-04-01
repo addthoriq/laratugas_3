@@ -30,15 +30,17 @@ class UsersTableSeeder extends Seeder
         //     ]
         // ];
 
-        $faker  = Factory::create('id_ID');
+        $faker     = Factory::create('id_ID');
+        $role_id   = DB::table('roles')->pluck('id');
         for ($i=0; $i < 10; $i++)
         {
             $data[$i] = [
-                'name'  => $faker->name,
-                'email'  => $faker->freeEmail,
-                'password'  => bcrypt('123'),
-                'created_at'  => now(),
-                'updated_at'  => now(),
+                'role_id'       => $faker->randomElement($role_id),
+                'name'          => $faker->name,
+                'email'         => $faker->freeEmail,
+                'password'      => bcrypt('123'),
+                'created_at'    => now(),
+                'updated_at'    => now(),
             ];
         }
         DB::table('users')->truncate();
