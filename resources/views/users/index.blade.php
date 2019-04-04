@@ -6,11 +6,14 @@
     </head>
     <body>
 
+        {{auth()->check()}}
+        {{auth()->user()->name}}
         <h1>
         User Table
         </h1>
 
         <a href="{{route('users.create')}}">Tambah</a>
+        <a href="{{ route('auth.logout') }}">Log Out</a>
 
         <table>
                 <tr>

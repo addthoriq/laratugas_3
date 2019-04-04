@@ -25,3 +25,8 @@ Route::put('/users/{name}', 'UserController@update')->name('users.update');
 Route::delete('/users/{name}', 'UserController@destroy')->name('users.destroy');
 
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
+
+//Auth
+Route::get('/login', 'AuthController@loginForm')->name('auth.login-form');
+Route::post('/login', 'AuthController@login')->name('auth.login');
+Route::get('/logout', 'AuthController@logout')->name('auth.logout');
